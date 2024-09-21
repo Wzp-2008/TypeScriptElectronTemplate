@@ -1,0 +1,23 @@
+{
+  "name": "electron-template",
+  "version": "1.0.0",
+  "main": "build/main.js",
+  "type": "commonjs",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vue-tsc && electron .",
+    "build": "vue-tsc && node ./build/utils/BuildUtils.js"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "electron": "^29.1.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4",
+    "vue-tsc": "^2.0.6",
+    "vue": "^3.4.21",
+    "@electron-forge/core": "^7.5.0"
+  },
+  "dependencies": {
+    
+  }
+}

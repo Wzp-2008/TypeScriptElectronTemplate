@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, ipcMain } from "electron";
+import {app, BrowserWindow, Menu, ipcMain} from "electron";
 import {startingDevServer} from "./utils/DevUtils";
 import {join, join as pathJoin} from "path";
 
@@ -12,7 +12,7 @@ const createWindow = async () => {
             preload: join(__dirname, "preload/index.js")
         }
     })
-    if (development){
+    if (development) {
         const serverPort = await startingDevServer();
         win.loadURL('http://127.0.0.1:' + serverPort).then(() => {
             win.webContents.openDevTools(); // openDevTool when it's open

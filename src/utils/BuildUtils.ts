@@ -2,8 +2,8 @@ import {build} from "vite";
 import {viteConfiguration} from "./DevUtils";
 import {api} from '@electron-forge/core';
 import {existsSync, rmSync, readdirSync, readFileSync, writeFileSync, cpSync} from "fs";
-import {join} from "path";
-import {spawnSync} from "child_process";
+import {join, resolve} from "path";
+import { spawnSync } from "child_process"
 
 if (existsSync("./build/app")) {
     rmSync("./build/app", {recursive: true, force: true});
@@ -31,6 +31,7 @@ build(viteConfiguration).then(() => {
         myPackage['devDependencies']['@electron/fuses'] = "^1.7.0";
         myPackage['devDependencies']['@electron-forge/plugin-fuses'] = '^7.2.0';
         myPackage['devDependencies']['@electron-forge/maker-zip'] = '^7.3.0';
+        myPackage['devDependencies']['@electron-forge/cli'] = myPackage['devDependencies']['@electron-forge/core'];
         myPackage['main'] = "src/main.js";
         myPackage['config'] = {
             forge: {
@@ -48,9 +49,5 @@ build(viteConfiguration).then(() => {
         vite_file_list.forEach(v => {
             cpSync(join("./build/vite", v), join("./build/app/src", v), {recursive: true});
         });
-        spawnSync("yarn install", {cwd: "./build/app"});
-        api.make({dir: "./build/app", interactive: true}).then(() => {
-            console.log("done");
-        })
     })
 })

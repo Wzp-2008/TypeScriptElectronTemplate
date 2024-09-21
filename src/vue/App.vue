@@ -11,7 +11,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="/electron.svg" class="logo electron" alt="Electron logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <img src="./vue.svg" class="logo vue" alt="Vue logo" />
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
   <HelloWorld msg="Vite + Electron + Vue" />
